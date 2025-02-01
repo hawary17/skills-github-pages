@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختراق النظام</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hacked-screen">
+        <h1>⚠️ تحذير أمني ⚠️</h1>
+        <p>تم اختراق جهازك، الرجاء عدم إغلاق النافذة!</p>
+        <p>جارٍ نقل جميع الملفات إلى السيرفر...</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    background-color: black;
+    color: red;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    padding: 50px;
+}
+
+#hacked-screen {
+    border: 3px solid red;
+    padding: 20px;
+    display: inline-block;
+    background: black;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+// تحريك الماوس تلقائيًا
+function moveMouse() {
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    window.scrollTo(x, y);
+}
+
+setInterval(moveMouse, 500);
+
+// رسائل منبثقة مخيفة
+const scaryMessages = [
+    "⚠️ تحذير: تم اكتشاف فيروس خطير!",
+    "🚨 جاري حذف ملفات النظام!",
+    "🔍 تم اختراق كاميرا جهازك!",
+    "💀 تم إرسال بياناتك إلى السيرفر المظلم!",
+    "🔥 الجهاز سينطفئ خلال 10 ثواني!"
+];
+
+let i = 0;
+function showAlerts() {
+    if (i < scaryMessages.length) {
+        alert(scaryMessages[i]);
+        i++;
+        setTimeout(showAlerts, 2000);
+    } else {
+        setTimeout(() => {
+            alert("😂 يا عم هزار بس! مفيش اختراق ولا حاجة!");
+        }, 3000);
+    }
+}
+
+setTimeout(showAlerts, 2000);
